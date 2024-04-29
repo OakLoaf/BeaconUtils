@@ -19,20 +19,20 @@ public class PhantomNoFireEffect extends Effect implements EntityEffect, Locatio
 
     @Override
     public boolean useEffect(Entity entity) {
-        return setAnchorLocation(entity);
+        return setNoFire(entity);
     }
 
     @Override
     public boolean useEffect(Entity entity, Location location) {
-        return setAnchorLocation(entity);
+        return setNoFire(entity);
     }
 
     @Override
     public boolean useEffect(Entity entity, Entity entity1) {
-        return setAnchorLocation(entity);
+        return setNoFire(entity);
     }
 
-    public boolean setAnchorLocation(Entity entity) {
+    public boolean setNoFire(Entity entity) {
         if (entity instanceof Phantom phantom) {
             phantom.setShouldBurnInDay(burnInDay);
             return true;
