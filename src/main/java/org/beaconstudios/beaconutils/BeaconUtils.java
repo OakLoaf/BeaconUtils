@@ -1,5 +1,7 @@
 package org.beaconstudios.beaconutils;
 
+import org.beaconstudios.beaconutils.command.BeaconUtilsCommand;
+import org.beaconstudios.beaconutils.function.FunctionManager;
 import org.beaconstudios.beaconutils.hook.HookId;
 import org.beaconstudios.beaconutils.hook.skillslibrary.SkillsLibraryHook;
 import org.lushplugins.lushlib.LushLib;
@@ -11,16 +13,23 @@ import java.util.Random;
 
 public final class BeaconUtils extends SpigotPlugin {
     public static final Random RANDOM = new Random();
+    private static BeaconUtils plugin;
+
+    private FunctionManager functionManager;
 
     @Override
     public void onLoad() {
+        plugin = this;
         LushLib.getInstance().enable(this);
     }
 
     @Override
     public void onEnable() {
+        this.functionManager = new FunctionManager();
+
         addHook(HookId.SKILLS_LIBRARY, () -> registerHook(new SkillsLibraryHook()));
 
+        registerCommand(new BeaconUtilsCommand());
         registerCommand(new EntityFillCommand());
 
         getHooks().forEach(Hook::enable);
@@ -29,5 +38,13 @@ public final class BeaconUtils extends SpigotPlugin {
     @Override
     public void onDisable() {
         unregisterAllHooks();
+    }
+
+    public FunctionManager getFunctionManager() {
+        return functionManager;
+    }
+
+    public static BeaconUtils getInstance() {
+        return plugin;
     }
 }

@@ -1,0 +1,6 @@
+commands:
+  - "boss spawn Sniffer -1431 54 -539 world"
+  - "boss spawn Phantom -1431 54 -539 world"
+
+# Which command(s) to run (ALL: Runs all commands, RANDOM: Runs one random command)
+command-selection: ALL
