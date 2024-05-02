@@ -37,7 +37,7 @@ public class FunctionManager {
                 File functionFile = entry.toFile();
                 YamlConfiguration functionConfig = YamlConfiguration.loadConfiguration(functionFile);
 
-                String id = functionFile.getName();
+                String id = functionFile.getName().split("\\.")[0];
                 Function function = new Function(id, functionConfig);
                 BeaconUtils.getInstance().getFunctionManager().registerFunction(id, function);
             });

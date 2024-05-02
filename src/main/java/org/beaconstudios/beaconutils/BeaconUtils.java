@@ -26,6 +26,7 @@ public final class BeaconUtils extends SpigotPlugin {
     @Override
     public void onEnable() {
         this.functionManager = new FunctionManager();
+        functionManager.reloadFunctions();
 
         addHook(HookId.SKILLS_LIBRARY, () -> registerHook(new SkillsLibraryHook()));
 
