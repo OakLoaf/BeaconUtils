@@ -8,4 +8,5 @@ commands:
   entityfill:
     usage: /entityfill
 softdepend:
+  - EnchantedBosses
   - SkillsLibrary2

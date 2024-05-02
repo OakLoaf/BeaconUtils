@@ -17,6 +17,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:${findProperty("minecraftVersion")}-R0.1-SNAPSHOT")
+    compileOnly(files("libs/enchanted-bosses-${findProperty("enchantedBossesVersion")}.jar"))
     compileOnly(files("libs/SkillsLibrary-${findProperty("skillslibraryVersion")}-all.jar"))
     implementation("org.lushplugins:LushLib:${findProperty("lushlibVersion")}")
 }

@@ -3,6 +3,7 @@ package org.beaconstudios.beaconutils;
 import org.beaconstudios.beaconutils.command.BeaconUtilsCommand;
 import org.beaconstudios.beaconutils.function.FunctionManager;
 import org.beaconstudios.beaconutils.hook.HookId;
+import org.beaconstudios.beaconutils.hook.enchantedbosses.EnchantedBossesHook;
 import org.beaconstudios.beaconutils.hook.skillslibrary.SkillsLibraryHook;
 import org.lushplugins.lushlib.LushLib;
 import org.lushplugins.lushlib.hook.Hook;
@@ -28,6 +29,7 @@ public final class BeaconUtils extends SpigotPlugin {
         this.functionManager = new FunctionManager();
         functionManager.reloadFunctions();
 
+        addHook(HookId.ENCHANTED_BOSSES, () -> registerHook(new EnchantedBossesHook()));
         addHook(HookId.SKILLS_LIBRARY, () -> registerHook(new SkillsLibraryHook()));
 
         registerCommand(new BeaconUtilsCommand());
