@@ -7,6 +7,8 @@ commands:
     usage: /beaconutils
   entityfill:
     usage: /entityfill
+  skin:
+    usage: /skin
 softdepend:
   - EnchantedBosses
   - SkillsLibrary2

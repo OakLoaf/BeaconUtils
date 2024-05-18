@@ -1,6 +1,7 @@
 package org.beaconstudios.beaconutils;
 
 import org.beaconstudios.beaconutils.command.BeaconUtilsCommand;
+import org.beaconstudios.beaconutils.command.SkinCommand;
 import org.beaconstudios.beaconutils.function.FunctionManager;
 import org.beaconstudios.beaconutils.hook.HookId;
 import org.beaconstudios.beaconutils.hook.enchantedbosses.EnchantedBossesHook;
@@ -34,6 +35,7 @@ public final class BeaconUtils extends SpigotPlugin {
 
         registerCommand(new BeaconUtilsCommand());
         registerCommand(new EntityFillCommand());
+        registerCommand(new SkinCommand());
 
         getHooks().forEach(Hook::enable);
     }
